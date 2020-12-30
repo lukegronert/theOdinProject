@@ -1,0 +1,19 @@
+#grid {
+    height: 500px;
+    width: 960px;
+}
+
+.columnBox {
+    height: 25%;
+    width: 25%;
+    float: left;
+}
+
+#grid div div {
+    float: left;
+}
+
+#header {
+    text-align: center;
+    padding: 20px 0px;
+}
