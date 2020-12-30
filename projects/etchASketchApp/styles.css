@@ -1,19 +1,27 @@
-#grid {
-    height: 500px;
-    width: 960px;
-}
-
-.columnBox {
-    height: 25%;
-    width: 25%;
-    float: left;
-}
-
-#grid div div {
-    float: left;
+button {
+    width: 100px;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 #header {
     text-align: center;
-    padding: 20px 0px;
+}
+
+#gameContainer {
+    height: 500px;
+    width: 1000px;
+    margin: auto;
+    align-items: center;
+    border: 1px solid black;
+}
+
+#grid {
+    height: 100%;
+    width: 100%;
+    display: grid;
+}
+
+#red {
+    color: red;
 }
