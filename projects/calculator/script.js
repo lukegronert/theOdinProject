@@ -36,8 +36,10 @@ clearBtn.addEventListener('click', () => clear());
 //     })
 // })
 
+//
 operatorButtons.forEach((button) => {
     button.addEventListener('click', () => {
+        // When user uses operator to find answer and perform another operation on the answer
         if(value1 != '') {
             console.log(value1);
             value2 = display.textContent;
@@ -47,6 +49,7 @@ operatorButtons.forEach((button) => {
             value2 = '';
             operator = button.textContent;
             updateCalculation();
+        //When user performs operation on first number
         } else {
             value1 = display.textContent;
             operator = button.textContent;
@@ -58,6 +61,7 @@ operatorButtons.forEach((button) => {
 
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
+        // if an operator button was used to get answer, this will clear the display, while keeping the answer as first value of next operation
         if(answer != '') {
             value1=display.textContent;
             display.textContent = '';
@@ -66,6 +70,7 @@ numberButtons.forEach((button) => {
             value2 = '';
             answer = '';
         } else {
+        // when user starts a new operation
             display.textContent += button.textContent;
         }
     })
