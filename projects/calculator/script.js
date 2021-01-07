@@ -1,21 +1,5 @@
 console.log("CONNECTED");
 
-// const zero = document.querySelector("#0");
-// const one = document.querySelector("#1");
-// const two = document.querySelector("#2");
-// const three = document.querySelector("#3");
-// const four = document.querySelector("#4");
-// const five = document.querySelector("#5");
-// const six = document.querySelector("#6");
-// const seven = document.querySelector("#7");
-// const eight = document.querySelector("#8");
-// const nine = document.querySelector("#9");
-// const plus = document.querySelector("#plus");
-// const minus = document.querySelector("#minus");
-// const times = document.querySelector("#multiply");
-// const dividedBy = document.querySelector("#divide");
-// const equal = document.querySelector("#equal");
-// const decimal = document.querySelector("#decimal");
 const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.operator');
 const clearBtn = document.querySelector('.clear');
@@ -25,7 +9,7 @@ const calculation = document.querySelector('#calculation-display')
 
 let value1 = '';
 let value2 = '';
-let answer = '';
+let answer = 'n';
 let operator = '';
 
 clearBtn.addEventListener('click', () => clear());
@@ -36,19 +20,22 @@ clearBtn.addEventListener('click', () => clear());
 //     })
 // })
 
-//
+//when user presses an operator
 operatorButtons.forEach((button) => {
     button.addEventListener('click', () => {
         // When user uses operator to find answer and perform another operation on the answer
-        if(value1 != '') {
-            console.log(value1);
+        if(operator == '=') {
+            display.textContent = '';
+            operator = button.textContent;
+            answer = '';
+        } else if (value2 == '') {
             value2 = display.textContent;
+            operator = button.textContent;
             answer = operate(Number(value1), operator, Number(value2));
             display.textContent = answer;
-            value1 = answer;
-            value2 = '';
-            operator = button.textContent;
             updateCalculation();
+            value1=answer;
+            value2 = '';
         //When user performs operation on first number
         } else {
             value1 = display.textContent;
@@ -59,11 +46,13 @@ operatorButtons.forEach((button) => {
     })
 });
 
+// when user presses a number
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
         // if an operator button was used to get answer, this will clear the display, while keeping the answer as first value of next operation
-        if(answer != '') {
-            value1=display.textContent;
+        if (display.textContent == '') {
+            display.textContent += button.textContent
+        } else if (value1 == answer) {
             display.textContent = '';
             display.textContent += button.textContent;
             updateCalculation();
@@ -80,11 +69,11 @@ equalBtn.addEventListener('click', () => {
     value2 = display.textContent;
     answer = operate(Number(value1), operator, Number(value2));
     display.textContent = answer;
+    updateCalculation();
     value1=answer;
-    operator = '';
+    operator = equalBtn.textContent;
     value2 = '';
     console.log(value1);
-    updateCalculation();
 });
 
 const clear = () => {
@@ -118,8 +107,10 @@ function operate(a, operator, b) {
         return subtract(a,b)
     } else if (operator === '*') {
         return multiply(a,b)
-    } else {
+    } else if (operator === '/') {
         return divide(a,b)
+    } else {
+        console.log('No operator!!!!')
     }
 }
 
