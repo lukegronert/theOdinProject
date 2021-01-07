@@ -21,33 +21,65 @@ const operatorButtons = document.querySelectorAll('.operator');
 const clearBtn = document.querySelector('.clear');
 const equalBtn = document.querySelector('.equal');
 const display = document.querySelector('#display');
+const calculation = document.querySelector('#calculation-display')
 
 let value1 = '';
 let value2 = '';
+let answer = '';
 let operator = '';
 
 clearBtn.addEventListener('click', () => clear());
 
-numberButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-            display.textContent += button.textContent;
-    })
-})
+// numberButtons.forEach((button) => {
+//     button.addEventListener('click', () => {
+//             display.textContent += button.textContent;
+//     })
+// })
 
 operatorButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        value1 = display.textContent;
-        operator = button.textContent;
-        display.textContent = '';
+        if(value1 != '') {
+            console.log(value1);
+            value2 = display.textContent;
+            answer = operate(Number(value1), operator, Number(value2));
+            display.textContent = answer;
+            value1 = answer;
+            value2 = '';
+            operator = button.textContent;
+            updateCalculation();
+        } else {
+            value1 = display.textContent;
+            operator = button.textContent;
+            display.textContent = '';
+            updateCalculation();
+        }
     })
 });
 
+numberButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if(answer != '') {
+            value1=display.textContent;
+            display.textContent = '';
+            display.textContent += button.textContent;
+            updateCalculation();
+            value2 = '';
+            answer = '';
+        } else {
+            display.textContent += button.textContent;
+        }
+    })
+})
+
 equalBtn.addEventListener('click', () => {
     value2 = display.textContent;
-    let answer = operate(Number(value1), operator, Number(value2));
+    answer = operate(Number(value1), operator, Number(value2));
     display.textContent = answer;
-    value1 = answer;
+    value1=answer;
     operator = '';
+    value2 = '';
+    console.log(value1);
+    updateCalculation();
 });
 
 const clear = () => {
@@ -55,6 +87,7 @@ const clear = () => {
     value1 = '';
     value2 = '';
     operator = '';
+    updateCalculation();
 }
 
 function add(a,b) {
@@ -84,3 +117,8 @@ function operate(a, operator, b) {
         return divide(a,b)
     }
 }
+
+const updateCalculation = function() {
+    calculation.textContent = `${value1} ${operator} ${value2}`;
+}
+
