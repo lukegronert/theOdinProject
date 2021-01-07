@@ -28,12 +28,13 @@ operatorButtons.forEach((button) => {
             display.textContent = '';
             operator = button.textContent;
             answer = '';
-        } else if (value2 == '') {
+            updateCalculation();
+        } else if (value1 != '') {
             value2 = display.textContent;
-            operator = button.textContent;
             answer = operate(Number(value1), operator, Number(value2));
             display.textContent = answer;
             updateCalculation();
+            operator = button.textContent;
             value1=answer;
             value2 = '';
         //When user performs operation on first number
@@ -50,7 +51,12 @@ operatorButtons.forEach((button) => {
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
         // if an operator button was used to get answer, this will clear the display, while keeping the answer as first value of next operation
-        if (display.textContent == '') {
+        if (operator == '=' && display.textContent != '') {
+            display.textContent = '';
+            value1 = '';
+            operator = '';
+            display.textContent = button.textContent;
+        } else if (display.textContent == '') {
             display.textContent += button.textContent
         } else if (value1 == answer) {
             display.textContent = '';
@@ -71,6 +77,7 @@ equalBtn.addEventListener('click', () => {
     display.textContent = answer;
     updateCalculation();
     value1=answer;
+    //allows operatorButton eventListener to differentiate between when an operation was executed through pressing '=' or an operator button
     operator = equalBtn.textContent;
     value2 = '';
     console.log(value1);
