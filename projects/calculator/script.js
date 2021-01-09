@@ -1,5 +1,6 @@
 console.log("CONNECTED");
 
+const buttons = document.querySelectorAll('button');
 const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.operator');
 const clearBtn = document.querySelector('.clear');
@@ -13,12 +14,6 @@ let answer = 'n';
 let operator = '';
 
 clearBtn.addEventListener('click', () => clear());
-
-// numberButtons.forEach((button) => {
-//     button.addEventListener('click', () => {
-//             display.textContent += button.textContent;
-//     })
-// })
 
 //when user presses an operator
 operatorButtons.forEach((button) => {
@@ -125,3 +120,44 @@ const updateCalculation = function() {
     calculation.textContent = `${value1} ${operator} ${value2}`;
 }
 
+// Button hover/click styles
+buttons.forEach((button) => {
+    button.addEventListener('mousedown', () => {
+        button.classList.toggle('clicked');
+    });
+    button.addEventListener('mouseup', () => {
+        button.classList.toggle('clicked');
+    })
+    button.addEventListener('mouseover', () => {
+        button.classList.toggle('hovered');
+    })
+    button.addEventListener('mouseout', () => {
+        button.classList.toggle('hovered');  
+    })
+});
+
+equalBtn.addEventListener('mousedown', () => {
+    equalBtn.classList.toggle('equalClick');
+});
+equalBtn.addEventListener('mouseup', () => {
+    equalBtn.classList.toggle('equalClick');
+})
+equalBtn.addEventListener('mouseover', () => {
+    equalBtn.classList.toggle('equalHover');
+})
+equalBtn.addEventListener('mouseout', () => {
+    equalBtn.classList.toggle('equalHover');  
+})
+
+clearBtn.addEventListener('mousedown', () => {
+    clearBtn.classList.toggle('clearClick');
+});
+clearBtn.addEventListener('mouseup', () => {
+    clearBtn.classList.toggle('clearClick');
+})
+clearBtn.addEventListener('mouseover', () => {
+    clearBtn.classList.toggle('clearHover');
+})
+clearBtn.addEventListener('mouseout', () => {
+    clearBtn.classList.toggle('clearHover');  
+})
