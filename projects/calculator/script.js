@@ -67,15 +67,17 @@ numberButtons.forEach((button) => {
 })
 
 equalBtn.addEventListener('click', () => {
-    value2 = display.textContent;
-    answer = operate(Number(value1), operator, Number(value2));
-    display.textContent = answer;
-    updateCalculation();
-    value1=answer;
-    //allows operatorButton eventListener to differentiate between when an operation was executed through pressing '=' or an operator button
-    operator = equalBtn.textContent;
-    value2 = '';
-    console.log(value1);
+    if(display.textContent != '' && operator != '=' && value1 != '') {
+        value2 = display.textContent;
+        answer = operate(Number(value1), operator, Number(value2));
+        display.textContent = answer;
+        updateCalculation();
+        value1=answer;
+        //allows operatorButton eventListener to differentiate between when an operation was executed through pressing '=' or an operator button
+        operator = equalBtn.textContent;
+        value2 = '';
+        console.log(value1);
+    }
 });
 
 const clear = () => {
@@ -121,20 +123,35 @@ const updateCalculation = function() {
 }
 
 // Button hover/click styles
-buttons.forEach((button) => {
+numberButtons.forEach((button) => {
     button.addEventListener('mousedown', () => {
-        button.classList.toggle('clicked');
+        button.classList.toggle('numberClick');
     });
     button.addEventListener('mouseup', () => {
-        button.classList.toggle('clicked');
+        button.classList.toggle('numberClick');
     })
     button.addEventListener('mouseover', () => {
-        button.classList.toggle('hovered');
+        button.classList.toggle('numberHover');
     })
     button.addEventListener('mouseout', () => {
-        button.classList.toggle('hovered');  
+        button.classList.toggle('numberHover');  
     })
 });
+
+operatorButtons.forEach((button) => {
+    button.addEventListener('mousedown', () => {
+        button.classList.toggle('operatorClick');
+    })
+    button.addEventListener('mouseup', () => {
+        button.classList.toggle('operatorClick');
+    })
+    button.addEventListener('mouseover', () => {
+        button.classList.toggle('operatorHover');
+    })
+    button.addEventListener('mouseout', () => {
+        button.classList.toggle('operatorHover');
+    })
+})
 
 equalBtn.addEventListener('mousedown', () => {
     equalBtn.classList.toggle('equalClick');
