@@ -19,7 +19,10 @@ clearBtn.addEventListener('click', () => clear());
 operatorButtons.forEach((button) => {
     button.addEventListener('click', () => {
         // When user uses operator to find answer and perform another operation on the answer
-        if(operator == '=') {
+        if (display.textContent === "Don't do that!" || value1 === "Don't do that!") {
+            display.textContent = '';
+            value1 = '';
+        } else if(operator == '=') {
             display.textContent = '';
             operator = button.textContent;
             answer = '';
@@ -46,13 +49,16 @@ operatorButtons.forEach((button) => {
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
         // if an operator button was used to get answer, this will clear the display, while keeping the answer as first value of next operation
-        if (operator == '=' && display.textContent != '') {
+        if (display.textContent == "Don't do that!") {
+            clear();
+            display.textContent += button.textContent;
+        } else if (operator == '=' && display.textContent != '') {
             display.textContent = '';
             value1 = '';
             operator = '';
             display.textContent = button.textContent;
         } else if (display.textContent == '') {
-            display.textContent += button.textContent
+            display.textContent += button.textContent;
         } else if (value1 == answer) {
             display.textContent = '';
             display.textContent += button.textContent;
@@ -67,7 +73,7 @@ numberButtons.forEach((button) => {
 })
 
 equalBtn.addEventListener('click', () => {
-    if(display.textContent != '' && operator != '=' && value1 != '') {
+    if(display.textContent != '' && operator != '=' && value1 !== '') {
         value2 = display.textContent;
         answer = operate(Number(value1), operator, Number(value2));
         display.textContent = answer;
@@ -76,7 +82,6 @@ equalBtn.addEventListener('click', () => {
         //allows operatorButton eventListener to differentiate between when an operation was executed through pressing '=' or an operator button
         operator = equalBtn.textContent;
         value2 = '';
-        console.log(value1);
     }
 });
 
@@ -105,14 +110,18 @@ function divide(a,b) {
 }
 
 function operate(a, operator, b) {
-    if(operator === '+') {
+    if (operator === '+') {
         return add(a,b)
     } else if (operator === '-') {
         return subtract(a,b)
     } else if (operator === '*') {
         return multiply(a,b)
     } else if (operator === '/') {
-        return divide(a,b)
+        if(b == '0') {
+            return "Don't do that!";
+        } else {
+            return divide(a,b)
+        }
     } else {
         console.log('No operator!!!!')
     }
