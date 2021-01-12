@@ -7,20 +7,27 @@
     <title>My Library</title>
 </head>
 <body>
+    <header id="header">
+        <h1>Library</h1>
+    </header>
+    <div id="container">
+        <button id="newBookBtn">New Book</button>
+        <div id="form-container">
+            <form name="bookForm" class="noDisplay">
+                <input type="text" name="title" value="" placeholder="Title">
+                <input type="text" name="author" value="" placeholder="Author">
+                <input type="text" name="pages" value="" placeholder="Number of Pages">
+                <p>Have you read it?</p>
+                <input type="radio" id="yes" name="haveRead" value="yes">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="haveRead" value="no">
+                <label for="no">No</label></br>
+                <input type="button" name="Submit" value="Submit" onClick="submitForm(this.form)" id="submitBtn">
+            </form>
+        </div>
+    </div>
     <div id="grid-container">
 
-    </div>
-    <div id="form-container">
-        <form>
-            <input type="text" placeholder="Title">
-            <input type="text" placeholder="Author">
-            <input type="text" placeholder="Number of Pages">
-            Have you read it?
-            <input type="radio" id="yes" name="haveRead" value="yes">
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="haveRead" value="no">
-            <label for="no">No</label>
-        </form>
     </div>
  
 <script src="script.js"></script>
