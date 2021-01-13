@@ -11,8 +11,6 @@ function Book (title, author, pages, haveRead) {
 }
 
 const NotW = new Book("Name of the Wind", "Patrick Rothfuss", 500, "have read");
-const BookA = new Book("Book A", "Author A", 200, "have not read");
-const BookB = new Book("Book B", "Author B", 200, "have read");
 
 
 function addBookToLibrary(book) {
@@ -27,51 +25,6 @@ newBookBtn.addEventListener('click', () => {
     form.classList.toggle("noDisplay");
 })
 
-// function displayBooks() {
-//     myLibrary.forEach((book) => {
-//         const newDiv = document.createElement('div');
-//         const titleP = document.createElement('p');
-//         const authorP = document.createElement('p');
-//         const pagesP = document.createElement('p');
-//         const haveReadP = document.createElement('p');
-//         const title = document.createTextNode(book.title);
-//         const author = document.createTextNode(book.author);
-//         const pages = document.createTextNode(book.pages);
-//         const haveRead = document.createTextNode("You " +book.haveRead+ " it.");
-//         titleP.appendChild(title);
-//         authorP.appendChild(author);
-//         pagesP.appendChild(pages);
-//         haveReadP.appendChild(haveRead);
-//         newDiv.classList.add('card');
-//         newDiv.appendChild(titleP);
-//         newDiv.appendChild(authorP);
-//         newDiv.appendChild(pagesP);
-//         newDiv.appendChild(haveReadP);
-//         container.appendChild(newDiv);
-//         //create button for card
-//         const readButton = document.createElement('button');
-//         const deleteButton = document.createElement('button');
-//         readButton.classList.add('readBtn');
-//         deleteButton.classList.add('deleteBtn');
-//         const readButtonText = document.createTextNode('Read');
-//         const deleteButtonText = document.createTextNode('Delete');
-//         readButton.appendChild(readButtonText);
-//         deleteButton.appendChild(deleteButtonText);
-//         readButton.addEventListener('click', () => {
-//             if(haveReadP.textContent == "You have read it.") {
-//                 haveReadP.textContent = "You have not read it.";
-//             } else {
-//                 haveReadP.textContent = "You have read it.";
-//             }
-//         })
-//         deleteButton.addEventListener('click', () => {
-//             container.removeChild(newDiv);
-//             myLibrary.splice(myLibrary[myLibrary.indexOf(newDiv)], 1);
-//         })
-//         newDiv.appendChild(readButton);
-//         newDiv.appendChild(deleteButton);
-//     });
-// }
 let bookNum = 0;
 function displayNewBook(book) {
     book.idNum = bookNum;
@@ -155,5 +108,6 @@ function resetForm() {
     form.classList.toggle("noDisplay");
 }
 
+addBookToLibrary(NotW);
 displayNewBook(NotW);
 // displayBooks();
