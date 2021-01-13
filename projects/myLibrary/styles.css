@@ -1,11 +1,12 @@
 body {
-    background: slateblue;
+    background: #85DCB0;
+    font-family:'Courier New', Courier, monospace;
 }
 
 header {
     width: 100vw;
     height: 150px;
-    background: lightgrey;
+    background: #E27D60;
     text-align: center;
     line-height: 100px;
     position: absolute;
@@ -29,28 +30,53 @@ h1 {
 #grid-container {
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: auto auto auto auto;
-    margin: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 2%;
 }
 
 .card {
     height: 200px;
     width: 100%;
-    position: relative;
-    display: inline-block;
-    border: 1px solid black;
-    border-radius: 25%;
-    margin: auto;
     padding-top: 5%;
+    background: #C38D9E;
+    font-size: 0;
+    display: table; 
     text-align: center;
+    box-shadow: 1px 2px 2px 2px black;
+}
+
+.cardTitle {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+    width: 100%;
+}
+
+.cardAuthor {
+    font-size: 15px;
+}
+
+.cardPages {
+    font-size: 15px;
+}
+
+.cardHaveRead {
+    font-size: 10px;
 }
 
 form {
     width: 25%;
-    background: mediumslateblue;
-    border-radius: 25%;
+    max-width: 25%;
+    background:  #E8A87C;
     padding: 20px;
     margin: 10px auto;
+    box-shadow: 1px 2px 3px 3px rgb(70, 68, 68);
+    text-align: left;
+    padding-top: 40px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 9;
 }
 
 .noDisplay {
@@ -63,10 +89,13 @@ input[type=text] {
     padding-left: 20px;
     padding-right: 20px;
     margin-bottom: 10px;
+    height: 40px;
+    border-bottom: 1px solid black;
+    outline: none;
 }
 
 #newBookBtn {
-    background: #0cf;
+    background: #41B3A3;
     width: 20%;
     border-radius: 10rem;
     height: 50px;
@@ -74,6 +103,11 @@ input[type=text] {
     text-transform: uppercase;
     font-weight: bold;
     margin-top: 150px;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+#newBookBtn:hover {
+    background: rgb(65, 163, 187);
 }
 
 button {
@@ -87,4 +121,27 @@ button:before {
 
 #submitBtn {
     margin-top: 10px;
+}
+
+#readForm {
+    text-align: center;
+}
+
+.readBtn {
+    width: 100%;
+    margin-top: 7%;
+    background: lightgreen;
+}
+
+.readBtn:hover {
+    background: darkgreen;
+}
+
+.deleteBtn {
+    width: 100%;
+    background: red;
+}
+
+.deleteBtn:hover {
+    background: darkred;
 }

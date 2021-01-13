@@ -83,8 +83,8 @@ function displayNewBook(book) {
     const haveReadP = document.createElement('p');
     //Create text nodes with book info
     const title = document.createTextNode(book.title);
-    const author = document.createTextNode(book.author);
-    const pages = document.createTextNode(book.pages);
+    const author = document.createTextNode("By: " +book.author);
+    const pages = document.createTextNode("Length: " +book.pages);
     const haveRead = document.createTextNode("You " +book.haveRead+ " it.");
     //Put text nodes in <p> elements
     titleP.appendChild(title);
@@ -93,6 +93,10 @@ function displayNewBook(book) {
     haveReadP.appendChild(haveRead);
     //give the card .card styles
     newDiv.classList.add('card');
+    titleP.classList.add('cardTitle');
+    authorP.classList.add('cardAuthor');
+    pagesP.classList.add('cardPages');
+    haveReadP.classList.add('cardHaveRead');
     //Add all <p> elements to card
     newDiv.appendChild(titleP);
     newDiv.appendChild(authorP);
@@ -151,4 +155,5 @@ function resetForm() {
     form.classList.toggle("noDisplay");
 }
 
+displayNewBook(NotW);
 // displayBooks();
