@@ -110,4 +110,3 @@ function resetForm() {
 
 addBookToLibrary(NotW);
 displayNewBook(NotW);
-// displayBooks();
