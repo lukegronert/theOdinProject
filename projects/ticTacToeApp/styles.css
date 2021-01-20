@@ -22,6 +22,7 @@ h1 {
 #grid-container {
     display: grid;
     grid-template-columns: 20% 50% 20%;
+    grid-template-rows: 60vh;
     grid-gap: 2%;
     margin: auto;
     text-align: center;
@@ -32,18 +33,19 @@ h1 {
 
 #gameboard {
     margin: auto;
-    width: 300px;
-    height: 300px;
+    width: 80%;
+    height: 100%;
 }
 
 .square {
-    height: 100px;
-    width: 100px;
+    height: 33%;
+    width: 33%;
     text-align: center;
-    font-size: 90px;
+    font-size: 10vh;
     outline: 1px solid white;
     margin: auto;
     float: left;
+    line-height: 20vh;
 }
 
 .square:hover {
@@ -51,34 +53,29 @@ h1 {
 }
 
 .player {
-    font-size: 20px;
-    height: 20px;
+    font-size: 5vh;
+    height: 5vh;
     text-align: center;
 }
 
 #p1trophy {
     display:none;
     color: blue;
-    font-size: 200px;
+    font-size: 20vh;
 }
 
 #p2trophy {
     display:none;
     color: blue;
-    font-size: 200px;
+    font-size: 20vh;
 }
 
 .currentPlayer {
-    font-size: 40px;
-    line-height: 40px;
-    height: 40px;
     background: green;
 }
 
 .winner {
-    font-size: 50px;
-    line-height: 50px;
-    height: 50px;
+    font-size: 6vh;
 }
 
 #buttonDiv {
@@ -94,4 +91,8 @@ h1 {
 
 #newGameButton:focus {
     outline: none;
+}
+
+#newGameButton:hover {
+    background: grey;
 }
