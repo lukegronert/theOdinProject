@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    <div id="gameboard"></div>
+    <header>
+        <h1>Tic-Tac-Toe</h1>
+    </header>
+    <div id="grid-container">
+        <div id="player1" class="player currentPlayer"><span></span>Player 1</br>
+            <span><i id="p1trophy" class="fas fa-award"></i></span>
+        </div>
+        <div id="gameboard"></div>
+        <div id="player2" class="player">Player 2</br>
+            <span><i id="p2trophy" class="fas fa-award"></i></span>
+        </div>
+    </div>
+    <div id="buttonDiv">
+        <button id="newGameButton">NEW GAME</button>
+    </div>
     
 <script src="script.js"></script>
 </body>
