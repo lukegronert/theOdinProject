@@ -7,7 +7,7 @@ body {
 header {
     text-align: center;
     line-height: 100px;
-    background: Grey;
+    background: rgb(68, 68, 68);
     width: 100%;
     position: relative;
     top: 0;
