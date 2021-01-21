@@ -2,6 +2,7 @@ body {
     margin: 0;
     background: black;
     color: white;
+    font-family:'Courier New', Courier, monospace;
 }
 
 header {
@@ -75,7 +76,6 @@ h1 {
 }
 
 .winner {
-    font-size: 6vh;
 }
 
 #buttonDiv {

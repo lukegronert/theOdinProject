@@ -22,6 +22,9 @@ const DOM = (() => {
         getSquares: () => {
             return this.gameboard.querySelectorAll('.square')
         },
+        getPlayers: () => {
+            return document.querySelectorAll('.player');
+        }
     }
 })();
 
@@ -130,8 +133,10 @@ const Controller = (() => {
         mark = 'X';
         DOM.p1trophy.style.display = 'none';
         DOM.p2trophy.style.display = 'none';
+        //Check which player the game ended on and give Player 1 first turn
         if(!player1.classList.contains('currentPlayer')) {
             player1.classList.toggle('currentPlayer')
+            player2.classList.remove('currentPlayer')
         }
         //Remove winner class
         if(player1.classList.contains('winner')) {
@@ -139,6 +144,19 @@ const Controller = (() => {
         } else if(player2.classList.contains('winner')) {
             player2.classList.remove('winner');
         }
+    })
+    //Let users change player names by clicking on the name
+    DOM.getPlayers().forEach((player) => {
+        player.addEventListener('click', () => {
+            let name = prompt('Enter your name: (10 characters or less)');
+            if (name.length === 0) {
+                alert('You must enter a name!')
+            } else if(name.length <= 10) {
+                player.textContent = name;
+            } else {
+                alert('That name is too long!')
+            }
+        })
     })
     
     return {
