@@ -57,7 +57,7 @@ const Controller = (() => {
     const updateBoard = () => {
         for(let i=0;i<9;i++) {
             Gameboard.getBoard()[i] = DOM.getSquares()[i].textContent;
-        }
+        }   
     }
     const playerChange = () => {
         if(mark === 'X') {
@@ -78,8 +78,8 @@ const Controller = (() => {
                     square.textContent = mark;
                     markChange();
                     updateBoard();
-                    checkWinner();
                     playerChange();
+                    checkWinner();
                 }
             })
         })
@@ -108,9 +108,10 @@ const Controller = (() => {
                 DOM.p2trophy.style.display = "inline";
                 return DOM.player2.classList.toggle('winner');
             //If every square is filled and there is no winner, alert Draw
-            } else if(Gameboard.getBoard().every((mark) => mark != '')) {
-                return alert('Draw');
             }
+        }
+        if(Gameboard.getBoard().every((mark) => mark != '')) {
+            return alert('Draw');
         }
     }
 
