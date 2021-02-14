@@ -1,3 +1,5 @@
-import {initHomePage} from "./pageload.js";
+import {renderHome} from "./home.js";
+import {renderNavbar} from "./navbar.js";
 
-initHomePage();
+renderHome();
+renderNavbar();

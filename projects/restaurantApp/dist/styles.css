@@ -1,0 +1,16 @@
+body {
+    padding-top: 50px;
+}
+
+ul {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+}
+
+ul li {
+    list-style-type: none;
+    float: left;
+    text-align: center;
+}

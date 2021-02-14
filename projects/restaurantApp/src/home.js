@@ -1,4 +1,4 @@
-const initHomePage = () => {
+const renderHome = () => {
     const content = document.querySelector('#content');
     const addTitle = () => {
         const title = document.createElement('h1');
@@ -21,5 +21,5 @@ const initHomePage = () => {
 };
 
 export {
-    initHomePage
+    renderHome
 }
