@@ -7,6 +7,9 @@ const renderHome = () => {
     main.appendChild(title);
     const desc = document.createElement('p');
     const descWords = document.createTextNode("A dining experience like no other. Join us!");
+
+    title.classList.add('homeTitle');
+    desc.classList.add('homeP');
     desc.appendChild(descWords);
     main.appendChild(desc);
     main.classList.add('main');
