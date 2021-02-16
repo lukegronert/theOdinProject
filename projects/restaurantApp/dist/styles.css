@@ -141,6 +141,7 @@ footer {
 
 .contactTitle {
     margin-top: 0;
+    padding-top: 3%;
 }
 
 .formSubject {
@@ -160,7 +161,8 @@ footer {
 .formButton {
     width: 20%;
     height: 5%;
-    border; none;
+    border: none;
+    outline: none;
     display: block;
     margin: auto;
     margin-top: 4%;
