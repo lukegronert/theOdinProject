@@ -2,6 +2,7 @@ import {renderHome} from "./home.js";
 import {renderNavbar} from "./navbar.js";
 import {renderFooter} from "./footer.js";
 import {renderMenu} from "./menu.js";
+import {renderContact} from "./contact.js";
 
 const content = document.querySelector("#content");
 

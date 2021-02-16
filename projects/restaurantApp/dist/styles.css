@@ -20,6 +20,12 @@ ul li {
     display: inline-block;
     margin-left: 10px;
     margin-right: 10px;
+    text-transform: uppercase;
+}
+
+ul li:hover {
+    color: blue;
+    cursor: pointer;
 }
 
 footer {
@@ -87,7 +93,6 @@ footer {
     from {opacity: 0.2;}
     to {opacity: 1;}
   }
-}
 
 .menuMain p {
     font-size: 2vh;
@@ -109,5 +114,54 @@ footer {
 }
 
 .price {
-    font-size: 1vh;
+    font-size: 2vh;
+}
+
+.contactMain {
+    background-color:rgb(168, 145, 15);
+    z-index: 1000;
+    text-align: center;
+    height: 83.5vh;
+    width: 100%;
+    -webkit-animation: fadeIn 0.5s ; /* Chrome, Safari, Opera */
+    animation: fadeIn 0.5s ;
+  }
+
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0.2;}
+    to {opacity: 1;}
+  }
+
+  /* Standard syntax */
+  @keyframes fadeIn {
+    from {opacity: 0.2;}
+    to {opacity: 1;}
+  }
+
+.contactTitle {
+    margin-top: 0;
+}
+
+.formSubject {
+    width: 50%;
+}
+
+.formTextArea {
+    height: 50%;
+    width: 50%;
+}
+
+.formSubjectLabel {
+    text-align: left;
+    margin-left: 25%;
+}
+
+.formButton {
+    width: 20%;
+    height: 5%;
+    border; none;
+    display: block;
+    margin: auto;
+    margin-top: 4%;
 }
