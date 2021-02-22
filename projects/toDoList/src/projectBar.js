@@ -4,10 +4,12 @@ function renderProjectBar() {
     const projectBar = document.querySelector('#projectBar');
 
     const ul = document.createElement('ul');
+    ul.classList.add('projectList');
 
     const project1 = manageProjects.createProject('project1');
     const project2 = manageProjects.createProject('project2');
     manageProjects.addToDo(project1, 'Wash Dog', 'Clean the dog', 'tomorrow', 'high');
+    manageProjects.addToDo(project2, 'Do homework', 'Math', 'Tuesday', 'high');
 
     const projectName = document.createTextNode(project1.name);
     manageProjects.projects.forEach((project) => {

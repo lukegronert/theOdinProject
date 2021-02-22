@@ -16,6 +16,9 @@ const manageProjects = (() => {
         addToDo(projectName, title, description, dueDate, priority) {
             const newToDo = {title, description, dueDate, priority};
             projectName.toDoList.push(newToDo);
+        },
+        getToDos(projectName) {
+            return projectName.toDoList;
         }
     }
 })();
