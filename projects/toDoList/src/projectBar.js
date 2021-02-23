@@ -1,25 +1,62 @@
 import {manageProjects} from "./projects.js";
 
-function renderProjectBar() {
+const renderProjectBar = (() => {
     const projectBar = document.querySelector('#projectBar');
+    const projectList = document.createElement('ul');
+    projectList.classList.add('projectList');
 
-    const ul = document.createElement('ul');
-    ul.classList.add('projectList');
-
+    //Sample project
     const project1 = manageProjects.createProject('project1');
-    const project2 = manageProjects.createProject('project2');
-    manageProjects.addToDo(project1, 'Wash Dog', 'Clean the dog', 'tomorrow', 'high');
-    manageProjects.addToDo(project2, 'Do homework', 'Math', 'Tuesday', 'high');
+    manageProjects.addToDo(project1, 'Task1');
 
-    const projectName = document.createTextNode(project1.name);
-    manageProjects.projects.forEach((project) => {
-        const li = document.createElement('li');
-        const liText = document.createTextNode(project.name);
-        li.appendChild(liText);
-        ul.appendChild(li);
-    })
-    projectBar.appendChild(ul);
-}
+    return {
+        renderProjectList() {
+            //Clears projectList
+            projectList.innerHTML = "";
+            //Fills projectList with lis for each project names
+            manageProjects.projects.forEach((project) => {
+                const li = document.createElement('li');
+                const liText = document.createTextNode(project.name);
+                li.appendChild(liText);
+                projectList.appendChild(li);
+            })
+            projectBar.appendChild(projectList);
+        },
+        renderNewProjectButton() {
+            //create a button for a new project and puts it in projectBar
+            const newProjectButton = document.createElement('button');
+            newProjectButton.classList.add('newProjectButton');
+            const buttonText = document.createTextNode('NEW');
+            newProjectButton.appendChild(buttonText);
+            projectBar.appendChild(newProjectButton);
+            //when newProjectButton is clicked
+            newProjectButton.addEventListener('click', () => {
+                //Create a form to enter a new project name
+                const projectFormli = document.createElement('li');
+                const projectForm = document.createElement('input');
+                projectForm.placeholder = 'Project Name';
+                projectFormli.appendChild(projectForm);
+                projectList.appendChild(projectFormli);
+                //Create submit button
+                const submitButton = document.createElement('input');
+                submitButton.setAttribute('type', 'submit');
+                projectList.appendChild(submitButton);
+                //When submit button is clicked
+                submitButton.addEventListener('click', () => {
+                    //Create a project with the name of the text in projectForm
+                    manageProjects.createProject(projectForm.value);
+                    console.log(manageProjects.projects);
+                    //Clear projectList
+                    if(projectBar.hasChildNodes()) {
+                        projectBar.removeChild(projectList);
+                    }
+                    //Repopulate project list with all project names
+                    this.renderProjectList()
+                })
+            })
+        }
+    }
+})();
 
 export {
     renderProjectBar

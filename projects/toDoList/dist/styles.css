@@ -1,0 +1,23 @@
+header {
+    height: 10%;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+.item-a {
+    text-align: center;
+    grid-column-start: 1;
+}
+
+.item-b {
+    text-align: center;
+    grid-column-start: 2;
+}
