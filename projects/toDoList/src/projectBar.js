@@ -1,62 +1,51 @@
-import {manageProjects} from "./projects.js";
+import {Project} from './projects.js';
 
-const renderProjectBar = (() => {
+function renderProjectBar() {
     const projectBar = document.querySelector('#projectBar');
     const projectList = document.createElement('ul');
-    projectList.classList.add('projectList');
 
-    //Sample project
-    const project1 = manageProjects.createProject('project1');
-    manageProjects.addToDo(project1, 'Task1');
+    let projects = [];
 
-    return {
-        renderProjectList() {
-            //Clears projectList
-            projectList.innerHTML = "";
-            //Fills projectList with lis for each project names
-            manageProjects.projects.forEach((project) => {
-                const li = document.createElement('li');
-                const liText = document.createTextNode(project.name);
-                li.appendChild(liText);
-                projectList.appendChild(li);
-            })
-            projectBar.appendChild(projectList);
-        },
-        renderNewProjectButton() {
-            //create a button for a new project and puts it in projectBar
-            const newProjectButton = document.createElement('button');
-            newProjectButton.classList.add('newProjectButton');
-            const buttonText = document.createTextNode('NEW');
-            newProjectButton.appendChild(buttonText);
-            projectBar.appendChild(newProjectButton);
-            //when newProjectButton is clicked
-            newProjectButton.addEventListener('click', () => {
-                //Create a form to enter a new project name
-                const projectFormli = document.createElement('li');
-                const projectForm = document.createElement('input');
-                projectForm.placeholder = 'Project Name';
-                projectFormli.appendChild(projectForm);
-                projectList.appendChild(projectFormli);
-                //Create submit button
-                const submitButton = document.createElement('input');
-                submitButton.setAttribute('type', 'submit');
-                projectList.appendChild(submitButton);
-                //When submit button is clicked
-                submitButton.addEventListener('click', () => {
-                    //Create a project with the name of the text in projectForm
-                    manageProjects.createProject(projectForm.value);
-                    console.log(manageProjects.projects);
-                    //Clear projectList
-                    if(projectBar.hasChildNodes()) {
-                        projectBar.removeChild(projectList);
-                    }
-                    //Repopulate project list with all project names
-                    this.renderProjectList()
-                })
-            })
-        }
+    //Make new project button add new project to the projectList
+    const newProjectButton = document.querySelector('#newProjectButton');
+    newProjectButton.addEventListener('click', () => {
+        const newProjectInput = document.createElement('input');
+        newProjectInput.placeholder = 'Project Name';
+        projectList.appendChild(newProjectInput);
+        const newProjectSubmitButton = document.createElement('button');
+        const submitButtonText = document.createTextNode('Submit');
+        newProjectSubmitButton.appendChild(submitButtonText);
+        projectList.appendChild(newProjectSubmitButton);
+        newProjectSubmitButton.addEventListener('click', () => {
+            projects.push(new Project(newProjectInput.value));
+            projectList.removeChild(newProjectInput);
+            projectList.removeChild(newProjectSubmitButton);
+            createProjectListLi(projects[projects.length-1]);
+        })
+    });
+
+    function createProjectListLi(project) {
+            const projectLi = document.createElement('li');
+            const projectText = document.createTextNode(project.name);
+            projectLi.appendChild(projectText);
+            projectList.appendChild(projectLi);
     }
-})();
+
+    //Sample projects
+    projects.push(new Project('Project1'));
+    projects.push(new Project('Project2'));
+    projects.push(new Project('Project3'));
+
+    //Create li's for each project and append them to projectList
+    function renderProjectList() {
+        projects.forEach((project) => {
+            createProjectListLi(project);
+        })
+    }
+
+    projectBar.appendChild(projectList);
+    renderProjectList();
+};
 
 export {
     renderProjectBar
