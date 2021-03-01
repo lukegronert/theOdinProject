@@ -1,10 +1,9 @@
-import {Project} from './projects.js';
+import {Project, projects} from './projects.js';
 
 function renderProjectBar() {
     const projectBar = document.querySelector('#projectBar');
     const projectList = document.createElement('ul');
-
-    let projects = [];
+    projectList.classList.add('.projectList');
 
     //Make new project button add new project to the projectList
     const newProjectButton = document.querySelector('#newProjectButton');
@@ -17,22 +16,34 @@ function renderProjectBar() {
         newProjectSubmitButton.appendChild(submitButtonText);
         projectList.appendChild(newProjectSubmitButton);
         newProjectSubmitButton.addEventListener('click', () => {
+            console.log(projects);
             projects.push(new Project(newProjectInput.value));
             projectList.removeChild(newProjectInput);
             projectList.removeChild(newProjectSubmitButton);
             createProjectListLi(projects[projects.length-1]);
         })
-    });
+    })
 
     function createProjectListLi(project) {
-            const projectLi = document.createElement('li');
-            const projectText = document.createTextNode(project.name);
-            projectLi.appendChild(projectText);
-            projectList.appendChild(projectLi);
+        //Create li
+        const projectLi = document.createElement('li');
+        const projectText = document.createTextNode(project.name);
+        projectLi.appendChild(projectText);
+        //Create delete button
+        const deleteButton = document.createElement('button');
+        const deleteButtonText = document.createTextNode('Delete');
+        deleteButton.appendChild(deleteButtonText);
+        projectLi.appendChild(deleteButton);
+
+        deleteButton.addEventListener('click', () => {
+            projectList.removeChild(projectLi);
+        })
+        projectList.appendChild(projectLi);
     }
 
     //Sample projects
     projects.push(new Project('Project1'));
+    projects[0].addToDo('Wash Dog');
     projects.push(new Project('Project2'));
     projects.push(new Project('Project3'));
 

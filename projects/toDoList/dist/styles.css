@@ -18,6 +18,6 @@ ul {
 }
 
 .item-b {
-    text-align: center;
+    text-align: left;
     grid-column-start: 2;
 }

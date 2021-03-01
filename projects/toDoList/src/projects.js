@@ -9,6 +9,7 @@ class Project {
         projects.push(newProject);
         return newProject;
     }
+
     //Add a to do to toDoList array inside project object
     addToDo(title) {
         this.toDoList.push(title)
@@ -23,6 +24,9 @@ class Project {
     }
 }
 
+const projects = [];
+
 export {
-    Project
+    Project,
+    projects
 }
