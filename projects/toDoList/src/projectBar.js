@@ -27,8 +27,10 @@ function renderProjectBar() {
     function createProjectListLi(project) {
         //Create li
         const projectLi = document.createElement('li');
-        const projectText = document.createTextNode(project.name);
-        projectLi.appendChild(projectText);
+        const projectLiSpan = document.createElement('span');
+        const projectLiSpanText = document.createTextNode(project.name);
+        projectLiSpan.appendChild(projectLiSpanText);
+        projectLi.appendChild(projectLiSpan);
         //Create delete button
         const deleteButton = document.createElement('button');
         const deleteButtonText = document.createTextNode('Delete');

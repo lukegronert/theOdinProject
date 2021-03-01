@@ -23,11 +23,11 @@ function renderToDoList() {
             createToDoLi(currentProject.getToDos()[currentProject.getToDos().length -1]);
         })
     })
-
+    //Bring up to do list of project when clicked
     projectList.forEach((projectLi) => {
         projectLi.addEventListener('click', (e) => {
             projects.forEach((project) => {
-                if(e.target.innerHTML === project.name) {
+                if(e.target.innerHTML.includes(project.name)) {
                     toDoListUl.innerHTML = '';
                     currentProject = project;
                     project.getToDos().forEach((todo) => {
