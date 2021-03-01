@@ -27,6 +27,8 @@ function renderProjectBar() {
     function createProjectListLi(project) {
         //Create li
         const projectLi = document.createElement('li');
+        //Putting the project name in a span to differentiate it from the button in the same li
+        //This makes it so that e.target.innerHTML in renderToDoList() in toDoList.js gives us the project name only
         const projectLiSpan = document.createElement('span');
         const projectLiSpanText = document.createTextNode(project.name);
         projectLiSpan.appendChild(projectLiSpanText);
