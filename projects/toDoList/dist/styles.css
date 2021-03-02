@@ -7,6 +7,7 @@ body {
 
 header {
     height: 10vh;
+    line-height: 10vh;
     text-align: center;
 }
 
@@ -20,32 +21,22 @@ ul {
 }
 
 #content {
-
+    margin-right: 1vw;
+    margin-left: 1vw;
 }
 
 #content ul li {
-    padding-left: 5vw;
+    padding-left: 2vw;
     background: lightgrey;
     height: 5vh;
     line-height: 5vh;
     margin-bottom: 2vh;
-    margin-left: 1vw;
-}
-
-#content ul li button {
-    float: right;
-    height: 5vh;
-    line-height: 5vh;
-    padding: 0;
-    width: 10vw;
-    background: red;
-    border: none;
-    outline: none;
 }
 
 /* Project Bar styling */
 #projectBar {
     height: 100%;
+    margin-left: 1vw;
 }
 
 #projectBar ul li {
@@ -55,18 +46,11 @@ ul {
     text-align: left;
     margin-bottom: 2vh;
     opacity: 0.9;
+    cursor: pointer;
 }
 
 #projectBar ul li:hover {
     opacity: 1;
-}
-
-#projectBar ul li button {
-    float: right;
-    height: 5vh;
-    line-height: 5vh;
-    padding: 0;
-    width: 10vw;
 }
 
 .container {
@@ -86,6 +70,18 @@ ul {
 }
 
 /* Button styling */
+
+.deleteBtn {
+    float: right;
+    height: 5vh;
+    line-height: 5vh;
+    padding: 0;
+    width: 10vw;
+    background: red;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
 
 .btn {
     line-height: 5vh;
@@ -153,7 +149,6 @@ ul {
     color: #FFF;
     transition: all 0.3s;
     position: relative;
-    margin-left: 1vw;
 }
 #newToDoButton span {
     transition: all 0.3s;

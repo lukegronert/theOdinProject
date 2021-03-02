@@ -47,7 +47,7 @@ function renderToDoList() {
         //Create delete button
         const deleteButton = document.createElement('button');
         const deleteButtonText = document.createTextNode('Delete');
-        deleteButton.classList.add('toDoDeleteBtn')
+        deleteButton.classList.add('deleteBtn')
         deleteButton.appendChild(deleteButtonText);
         newLi.appendChild(deleteButton);
 

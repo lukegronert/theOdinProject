@@ -36,7 +36,7 @@ function renderProjectBar() {
         //Create delete button
         const deleteButton = document.createElement('button');
         const deleteButtonText = document.createTextNode('Delete');
-        deleteButton.classList.add('projectDeleteBtn')
+        deleteButton.classList.add('deleteBtn')
         deleteButton.appendChild(deleteButtonText);
         projectLi.appendChild(deleteButton);
 
