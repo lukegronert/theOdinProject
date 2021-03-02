@@ -8,20 +8,34 @@ function renderToDoList() {
     let currentProject = projects[0];
 
     const newToDoButton = document.querySelector('#newToDoButton');
+    //When newToDoButton is clicked
     newToDoButton.addEventListener('click', () => {
-        const newToDoInput = document.createElement('input');
-        newToDoInput.placeholder = 'Enter information';
-        toDoListUl.appendChild(newToDoInput);
-        const newToDoSubmitButton = document.createElement('button');
-        const submitButtonText = document.createTextNode('Submit');
-        newToDoSubmitButton.appendChild(submitButtonText);
-        toDoListUl.appendChild(newToDoSubmitButton);
-        newToDoSubmitButton.addEventListener('click', () => {
-            currentProject.getToDos().push(newToDoInput.value);
-            toDoListUl.removeChild(newToDoInput);
-            toDoListUl.removeChild(newToDoSubmitButton);
-            createToDoLi(currentProject.getToDos()[currentProject.getToDos().length -1]);
-        })
+        //If there is no input already displayed
+        if(!content.querySelector('input')) {
+            //Create an input field and submit button
+            const newToDoInput = document.createElement('input');
+            newToDoInput.placeholder = 'Enter information';
+            toDoListUl.appendChild(newToDoInput);
+            const newToDoSubmitButton = document.createElement('button');
+            const submitButtonText = document.createTextNode('Submit');
+            newToDoSubmitButton.appendChild(submitButtonText);
+            toDoListUl.appendChild(newToDoSubmitButton);
+            newToDoSubmitButton.classList.add('toDoSubmitBtn');
+            //When submit button is clicked
+            newToDoSubmitButton.addEventListener('click', () => {
+                //Add to do to project toDoList
+                currentProject.getToDos().push(newToDoInput.value);
+                //Remove input and submit button
+                toDoListUl.removeChild(newToDoInput);
+                toDoListUl.removeChild(newToDoSubmitButton);
+                //Create li for new todo
+                createToDoLi(currentProject.getToDos()[currentProject.getToDos().length -1]);
+            })
+        } else {
+            //If an input is already displayed, remove it and the submit button
+            toDoListUl.removeChild(content.querySelector('input'));
+            toDoListUl.removeChild(content.querySelector('.toDoSubmitBtn'));
+        }
     })
     //Bring up to do list of project when clicked
     projectList.forEach((projectLi) => {

@@ -11,6 +11,10 @@ header {
     text-align: center;
 }
 
+span {
+    margin-left: 1vw;
+}
+
 h1 {
     margin: 0;
 }
@@ -18,6 +22,32 @@ h1 {
 ul {
     padding: 0;
     list-style-type: none;
+}
+
+#content ul input {
+    background: lightgrey;
+    height: 5vh;
+    line-height: 5vh;
+    width: 83.56%;
+    text-align: left;
+    margin-bottom: 2vh;
+    padding: 0;
+    opacity: 0.9;
+    border: none;
+    outline: none;
+    vertical-align: middle;
+    padding-left: 2vw;
+}
+
+.toDoSubmitBtn {
+    width: 10vw;
+    height: 5vh;
+    line-height: 5vh;
+    vertical-align: top;
+    background: green;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 #content {
@@ -53,6 +83,32 @@ ul {
     opacity: 1;
 }
 
+#projectBar ul input {
+    background: lightblue;
+    height: 5vh;
+    line-height: 5vh;
+    width: 54%;
+    text-align: left;
+    margin-bottom: 2vh;
+    opacity: 0.9;
+    padding: 0;
+    border: none;
+    outline: none;
+    vertical-align: middle;
+    padding-left: 1vw;
+}
+
+.projectSubmitBtn {
+    float: right;
+    width: 10vw;
+    height: 5vh;
+    line-height: 5vh;
+    background: green;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
 .container {
     display: grid;
     grid-template-columns: 25% 75%;
@@ -81,6 +137,7 @@ ul {
     border: none;
     outline: none;
     cursor: pointer;
+    opacity: 1;
 }
 
 .btn {
@@ -94,12 +151,16 @@ ul {
     background: none;
     margin-top: 0.3vh;
     outline: none;
+    position: fixed;
+    bottom: 0;
 }
 
 #newProjectButton {
     color: #FFF;
     transition: all 0.3s;
-    position: relative;
+    left: 0;
+    width: 24%;
+    margin-left: 1vw;
 }
 #newProjectButton span {
     transition: all 0.3s;
@@ -148,7 +209,7 @@ ul {
 #newToDoButton {
     color: #FFF;
     transition: all 0.3s;
-    position: relative;
+    width: 73%;
 }
 #newToDoButton span {
     transition: all 0.3s;

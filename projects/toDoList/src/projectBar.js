@@ -7,21 +7,34 @@ function renderProjectBar() {
 
     //Make new project button add new project to the projectList
     const newProjectButton = document.querySelector('#newProjectButton');
+    //When newProjectButton is clicked:
     newProjectButton.addEventListener('click', () => {
-        const newProjectInput = document.createElement('input');
-        newProjectInput.placeholder = 'Project Name';
-        projectList.appendChild(newProjectInput);
-        const newProjectSubmitButton = document.createElement('button');
-        const submitButtonText = document.createTextNode('Submit');
-        newProjectSubmitButton.appendChild(submitButtonText);
-        projectList.appendChild(newProjectSubmitButton);
-        newProjectSubmitButton.addEventListener('click', () => {
-            console.log(projects);
-            projects.push(new Project(newProjectInput.value));
-            projectList.removeChild(newProjectInput);
-            projectList.removeChild(newProjectSubmitButton);
-            createProjectListLi(projects[projects.length-1]);
-        })
+        //If there is no input already displayed
+        if(!projectBar.querySelector('input')) {
+            //Create an input field and submit button
+            const newProjectInput = document.createElement('input');
+            newProjectInput.placeholder = 'Project Name';
+            projectList.appendChild(newProjectInput);
+            const newProjectSubmitButton = document.createElement('button');
+            const submitButtonText = document.createTextNode('Submit');
+            newProjectSubmitButton.appendChild(submitButtonText);
+            projectList.appendChild(newProjectSubmitButton);
+            newProjectSubmitButton.classList.add('projectSubmitBtn');
+            //When submit button is clicked:
+            newProjectSubmitButton.addEventListener('click', () => {
+                //Add new project to projects array
+                projects.push(new Project(newProjectInput.value));
+                //Remove input and submit button
+                projectList.removeChild(newProjectInput);
+                projectList.removeChild(newProjectSubmitButton);
+                //Add new project to projectBar ul
+                createProjectListLi(projects[projects.length-1]);
+            })
+         } else {
+            //If an input is already displayed, remove it and the submit button
+            projectList.removeChild(projectBar.querySelector('input'));
+            projectList.removeChild(projectBar.querySelector('.projectSubmitBtn'));
+        }
     })
 
     function createProjectListLi(project) {
