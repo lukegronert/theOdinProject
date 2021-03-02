@@ -20,7 +20,7 @@ ul {
 }
 
 #content {
-    border-top: 1px solid black;
+
 }
 
 #content ul li {
@@ -29,6 +29,7 @@ ul {
     height: 5vh;
     line-height: 5vh;
     margin-bottom: 2vh;
+    margin-left: 1vw;
 }
 
 #content ul li button {
@@ -37,13 +38,13 @@ ul {
     line-height: 5vh;
     padding: 0;
     width: 10vw;
-    margin-right: 2vw;
+    background: red;
+    border: none;
+    outline: none;
 }
 
 /* Project Bar styling */
 #projectBar {
-    border-top: 1px solid black;
-    border-right: 1px solid black;
     height: 100%;
 }
 
@@ -53,7 +54,7 @@ ul {
     line-height: 5vh;
     text-align: left;
     margin-bottom: 2vh;
-    opacity: 0.5;
+    opacity: 0.9;
 }
 
 #projectBar ul li:hover {
@@ -95,7 +96,7 @@ ul {
     padding: 0;
     border: none;
     background: none;
-    margin-top: 1vh;
+    margin-top: 0.3vh;
     outline: none;
 }
 
@@ -152,6 +153,7 @@ ul {
     color: #FFF;
     transition: all 0.3s;
     position: relative;
+    margin-left: 1vw;
 }
 #newToDoButton span {
     transition: all 0.3s;
