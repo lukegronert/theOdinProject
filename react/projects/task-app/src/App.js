@@ -1,9 +1,52 @@
-function App() {
-  return (
-    <div className="App">
-      HEY
-    </div>
-  );
-}
+import React, { Component } from 'react';
+import Overview from './components/Overview';
+import uniqid from 'uniqid';
 
-export default App;
+export default class App extends Component {
+  constructor(props) {
+    super();
+    
+    this.state = {
+      task: { text: '', id:uniqid() },
+      tasks: [],
+    }
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      task: {
+        text: e.target.value,
+        id: this.state.task.id,
+      },
+    })
+  }
+
+  onSubmitTask = (e) => {
+    e.preventDefault();
+    this.setState({
+      tasks: this.state.tasks.concat(this.state.task),
+      task: {
+        text: '',
+        id: uniqid(),
+      }
+    })
+  }
+
+  render () {
+    const {task, tasks} = this.state;
+
+    return (
+      <div>
+        <form onSubmit={this.onSubmitTask}>
+          <label>Enter Task: </label>
+          <input type='text' id='taskInput'
+            onChange={this.handleChange}
+            value={this.state.task.text}
+            />
+          <button type='submit'>Add Task</button>
+        </form>
+        <Overview tasks={tasks} />
+      </div>
+    )
+  }
+}

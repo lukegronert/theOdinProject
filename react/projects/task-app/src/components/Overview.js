@@ -1,9 +1,13 @@
 import React from 'react'
 
-export default function Overview() {
+export default function Overview(props) {
+    const {tasks} = props;
     return (
-        <div>
-            
-        </div>
+        <ul>
+            {tasks.map((task) => {
+                return <li key={task.id}>{task.text}</li>
+            })}
+        </ul>
     )
 }
+
