@@ -3,6 +3,7 @@ import General from './components/General';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import uniqid from 'uniqid';
+import './App.css';
 
 export default class App extends Component {
   constructor(props) {
@@ -167,8 +168,9 @@ export default class App extends Component {
   render() {
     const {generalInfo, educationList, experienceList } = this.state;
     return (
-      <div>
+      <div className='container'>
         <h1>CV</h1>
+        <h2>General</h2>
         <form onSubmit={this.onSubmitGeneral}>
             <label>Name: </label>
             <input type="text" name="fullName"
@@ -185,6 +187,7 @@ export default class App extends Component {
             <button type='submit'>Submit</button>
         </form>
 
+        <h2>Education</h2>
         <form onSubmit={this.onSubmitEducation}>
           <label>School Name: </label>
           <input type="text" name="school"
@@ -201,6 +204,7 @@ export default class App extends Component {
           <button type='submit'>Add Education</button>
         </form>
 
+        <h2>Experience</h2>
         <form onSubmit={this.onSubmitExperience}>
           <label>Company: </label>
           <input type="text" name="company"
