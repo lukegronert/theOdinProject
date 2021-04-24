@@ -1,12 +1,19 @@
 import React from 'react'
 
 export default function General(props) {
-    const { info } = props;
+    const { info, onEdit } = props;
     return (
         <div>
-            <p>{info.fullName}</p>
-            <p>{info.phone}</p>
-            <p>{info.email}</p>
+            {info.map((general) => {
+                return (
+                    <div key={general.id}>
+                        <p>{general.fullName}</p>
+                        <p>{general.phone}</p>
+                        <p>{general.email}</p>
+                        <button onClick={() => onEdit()}>Edit</button>
+                    </div>
+                )
+            })}
         </div>
     )
 }

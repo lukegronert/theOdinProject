@@ -13,12 +13,9 @@ export default class App extends Component {
           fullName: '',
           email: '',
           phone: '',
+          id: 1,
         },
-        generalInfo: {
-          fullName: '',
-          email: '',
-          phone: '',
-        },
+        generalInfo: [],
         education: {
           school: '',
           degree: '',
@@ -37,29 +34,40 @@ export default class App extends Component {
         experienceList: [],
       }
     }
-
-  handleGeneralChange = (e) => {
-    this.setState({
-      generalForm: {
+    
+    handleGeneralChange = (e) => {
+      this.setState({
+        generalForm: {
         ...this.state.generalForm,
         [e.target.name]: e.target.value,
       }
     })
   }
 
-
+  
   onSubmitGeneral = (e) => {
     e.preventDefault();
     this.setState({
-        generalInfo: {
-          ...this.state.generalForm
-        },
-        generalForm: {
+      generalInfo: this.state.generalInfo.concat(this.state.generalForm),
+      generalForm: {
           fullName: '',
           email: '',
           phone: '',
+          id: 1,
         }
+      })
+  }
+  
+  onEditGeneral = () => {
+    this.setState({
+      generalForm: {
+        ...this.state.generalInfo[0]
+      },
+      generalInfo: this.state.generalInfo.filter((general) => {
+        return general.id !== 1;
+      })
     })
+    console.log(this.state.generalInfo)
   }
 
   handleEducationChange = (e) => {
@@ -70,8 +78,8 @@ export default class App extends Component {
       }
     })
   }
-
-
+  
+  
   onSubmitEducation = (e) => {
     e.preventDefault();
     this.setState({
@@ -82,6 +90,19 @@ export default class App extends Component {
           date: '',
           id: uniqid(),
         }
+    })
+  }
+
+  onEditEducation = (id) => {
+    this.setState({
+      education: {
+        ...this.state.educationList.filter((education) => {
+          return education.id === id
+        })[0]
+      },
+      educationList: this.state.educationList.filter((entry) => {
+        return entry.id !== id
+      })
     })
   }
 
@@ -109,6 +130,20 @@ export default class App extends Component {
         }
     })
   }
+
+  onEditExperience = (id) => {
+    this.setState({
+      experience: {
+        ...this.state.experienceList.filter((experience) => {
+          return experience.id === id
+        })[0]
+      },
+      experienceList: this.state.experienceList.filter((experience) => {
+        return experience.id !== id
+      })
+    })
+  }
+
 
   render() {
     const {generalInfo, educationList, experienceList } = this.state;
@@ -171,9 +206,9 @@ export default class App extends Component {
           <button type='submit'>Add Experience</button>
         </form>
 
-        <General info={generalInfo} />
-        <Education info={educationList} />
-        <Experience info={experienceList} />
+        <General info={generalInfo} onEdit={this.onEditGeneral} />
+        <Education info={educationList} onEdit={this.onEditEducation} />
+        <Experience info={experienceList} onEdit={this.onEditExperience} />
       </div>
     )
   }
