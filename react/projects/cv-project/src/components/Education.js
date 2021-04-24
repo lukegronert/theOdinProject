@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Education(props) {
-    const { info, onEdit } = props;
+    const { info, onEdit, onDelete } = props;
     return (
         <div>
             {info.map((education) => {
@@ -12,6 +12,9 @@ export default function Education(props) {
                             <button onClick={() => {
                                 onEdit(education.id)}}
                                 >Edit</button>
+                            <button onClick={() => {
+                                onDelete(education.id)}}
+                                >Delete</button>
                         </div>);
             })}
         </div>

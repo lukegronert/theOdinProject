@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Experience(props) {
-    const { info, onEdit } = props;
+    const { info, onEdit, onDelete } = props;
     return (
         <div>
             {info.map((experience) => {
@@ -13,6 +13,9 @@ export default function Experience(props) {
                             <button onClick={() => {
                                 onEdit(experience.id)}
                             }>Edit</button>
+                            <button onClick={() => {
+                                onDelete(experience.id)
+                            }}>Delete</button>
                             
                         </div>);
             })}

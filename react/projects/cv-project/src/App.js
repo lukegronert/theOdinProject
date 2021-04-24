@@ -35,6 +35,7 @@ export default class App extends Component {
       }
     }
     
+    // GENERAL INFO METHODS
     handleGeneralChange = (e) => {
       this.setState({
         generalForm: {
@@ -70,6 +71,7 @@ export default class App extends Component {
     console.log(this.state.generalInfo)
   }
 
+  //EDUCATION INFO METHODS
   handleEducationChange = (e) => {
     this.setState({
       education: {
@@ -106,6 +108,15 @@ export default class App extends Component {
     })
   }
 
+  onDeleteEducation = (id) => {
+    this.setState({
+      educationList: this.state.educationList.filter((entry) => {
+        return entry.id !== id
+      })
+    })
+  }
+
+  //EXPERIENCE INFO METHODS
   handleExperienceChange = (e) => {
     this.setState({
       experience: {
@@ -138,6 +149,14 @@ export default class App extends Component {
           return experience.id === id
         })[0]
       },
+      experienceList: this.state.experienceList.filter((experience) => {
+        return experience.id !== id
+      })
+    })
+  }
+
+  onDeleteExperience = (id) => {
+    this.setState({
       experienceList: this.state.experienceList.filter((experience) => {
         return experience.id !== id
       })
@@ -207,8 +226,8 @@ export default class App extends Component {
         </form>
 
         <General info={generalInfo} onEdit={this.onEditGeneral} />
-        <Education info={educationList} onEdit={this.onEditEducation} />
-        <Experience info={experienceList} onEdit={this.onEditExperience} />
+        <Education info={educationList} onEdit={this.onEditEducation} onDelete={this.onDeleteEducation} />
+        <Experience info={experienceList} onEdit={this.onEditExperience} onDelete={this.onDeleteExperience} />
       </div>
     )
   }
