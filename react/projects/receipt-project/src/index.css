@@ -1,0 +1,46 @@
+.appContainer {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  column-gap: 10px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+}
+
+.price {
+  font-size: 50px;
+}
+
+.choiceRowDiv {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  display: flex;
+}
+
+.choiceDiv {
+  width: 33%;
+  margin: auto;
+}
+
+.formContainer {
+  width: 90%;
+  height: 500px;
+  text-align: center;
+  border: 1px solid black;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  margin: auto;
+}
+
+.receiptContainer {
+  width: 90%;
+  height: 500px;
+  text-align: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  border: 1px solid black;
+  margin: auto;
+}
