@@ -4,7 +4,7 @@ export default function Receipt(props) {
     const totalPrice = () => {
         let sum = 0;
         props.order.map((item) => {
-            sum += Number(item.mainPrice) + Number(item.drinkPrice) + Number(item.dessertPrice)
+            return sum += Number(item.mainPrice) + Number(item.drinkPrice) + Number(item.dessertPrice)
         })
         return sum.toFixed(2);
     }
@@ -13,9 +13,9 @@ export default function Receipt(props) {
             <h1>Receipt</h1>
             {props.order.map((item) => {
                 return (<div key={item.id}>
-                    <p>{item.main} - {item.mainPrice}</p>
-                    <p>{item.dessert} - {item.dessertPrice}</p>
-                    <p>{item.drink} - {item.drinkPrice}</p>
+                    {item.main ? <p>{item.main} - {item.mainPrice}</p> : null}
+                    {item.dessert ? <p>{item.dessert} - {item.dessertPrice}</p> : null}
+                    {item.drink ? <p>{item.drink} - {item.drinkPrice}</p> : null}
                     </div>)
             })}
             <h4>Total: {totalPrice()}

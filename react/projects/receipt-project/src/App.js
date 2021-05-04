@@ -10,7 +10,6 @@ export default class App extends Component {
     this.state = {
       orderInput: {
         id: uniqid(),
-        name: '',
         main: '',
         mainPrice: [],
         dessert: '',
@@ -41,7 +40,6 @@ export default class App extends Component {
       orderTotal: this.state.orderTotal.concat(this.state.orderInput),
       orderInput: {
         id: uniqid(),
-        name: '',
         main: '',
         mainPrice: [],
         dessert: '',
