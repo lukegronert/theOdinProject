@@ -4,11 +4,11 @@ export default function Education(props) {
     return (
         <div>
             {props.info.map((education) => (
-                <div>
+                <div key={education.id}>
                     <p>{education.university}</p>
                     <p>{education.degree}</p>
                     <p>{education.dates}</p>
-                </div>
+                    <button onClick={() => props.onEdit(education.id)}>Edit</button>                </div>
                 ))}
         </div>
     )
