@@ -74,6 +74,10 @@ const editEducation = (entryId) => {
     }))
 }
 
+const deleteEducation = (entryid) => {
+    setEducation(education.filter((entry) => entry.id !== entryid))
+}
+
 const [experience, setExperience] = useState([]);
 
 const addExperience = (e) => {
@@ -117,6 +121,10 @@ const editExperience = (entryId) => {
     }))
 }
 
+const deleteExperience = (entryid) => {
+    setExperience(experience.filter((entry) => entry.id !== entryid))
+}
+
   return (
     <div className="App">
       <form className='generalForm'>
@@ -140,8 +148,8 @@ const editExperience = (entryId) => {
       </form>
       <General info={general} />
       <button className='editGeneral noDisplay' onClick={editGeneral}>Edit</button>
-      <Education info={education} onEdit={editEducation} />
-      <Experience info={experience} onEdit={editExperience} />
+      <Education info={education} onEdit={editEducation} onDelete={deleteEducation} />
+      <Experience info={experience} onEdit={editExperience} onDelete={deleteExperience} />
     </div>
   );
 }

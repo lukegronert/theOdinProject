@@ -11,6 +11,7 @@ export default function Experience(props) {
                     <p>{experience.description}</p>
                     <p>{experience.dates}</p>
                     <button onClick={() => props.onEdit(experience.id)}>Edit</button>
+                    <button onClick={() => props.onDelete(experience.id)}>Delete</button>
                 </div>
                 ))}
         </div>

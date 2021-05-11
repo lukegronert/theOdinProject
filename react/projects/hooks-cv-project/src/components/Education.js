@@ -8,7 +8,9 @@ export default function Education(props) {
                     <p>{education.university}</p>
                     <p>{education.degree}</p>
                     <p>{education.dates}</p>
-                    <button onClick={() => props.onEdit(education.id)}>Edit</button>                </div>
+                    <button onClick={() => props.onEdit(education.id)}>Edit</button>
+                    <button onClick={() => props.onDelete(education.id)}>Delete</button>
+                </div>
                 ))}
         </div>
     )
