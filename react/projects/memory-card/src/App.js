@@ -36,6 +36,7 @@ function App() {
   const resetGame = () => {
     setScore(0);
     setSelectedCardList([]);
+    setCardList(list.sort(() => Math.random() - 0.5));
     const instructions = document.querySelector('.instructions');
     instructions.textContent = 'Click each color without clicking the same color twice!';
   }
