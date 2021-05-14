@@ -29,9 +29,9 @@ code {
   grid-template-columns: 20% 20% 20% 20%;
   grid-column-gap: 5%;
   grid-template-rows: 25% 25% 25%;
-  grid-row-gap: 5%;
+  grid-row-gap: 8%;
   width: 50%;
-  height: 500px;
+  height: 450px;
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -40,4 +40,8 @@ code {
   grid-column-start: auto;
   grid-row-start: auto;
   height: 100%;
+}
+
+.buttonDiv {
+  text-align: center;
 }
