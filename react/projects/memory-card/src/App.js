@@ -29,7 +29,10 @@ function App() {
 
   return (
     <div className="App">
-      <Scoreboard score={score} bestScore={bestScore} />
+      <Scoreboard className='scoreboard' score={score} bestScore={bestScore} />
+      <div className='instructions'>
+        Click each color without clicking the same color twice!
+      </div>
       <Gameboard clickCard={clickCard} cardList={cardList} />
     </div>
   );

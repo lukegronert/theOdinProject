@@ -12,6 +12,17 @@ code {
     monospace;
 }
 
+.scoreboard {
+  font-weight: bold;
+  text-align: right;
+  padding-right: 10%;
+  padding-top: 2%;
+}
+
+.instructions {
+  text-align: center;
+}
+
 .gameboard {
   text-align: center;
   display: grid;
@@ -22,6 +33,7 @@ code {
   width: 50%;
   height: 500px;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 .card {
