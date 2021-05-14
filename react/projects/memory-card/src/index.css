@@ -14,14 +14,18 @@ code {
 
 .gameboard {
   text-align: center;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-column-gap: 5%;
+  grid-template-rows: 25% 25% 25%;
+  grid-row-gap: 5%;
   width: 50%;
+  height: 500px;
   margin: 0 auto;
 }
 
 .card {
-  border: 1px solid black;
-  height: 50px;
-  width: 50px;
-  margin: 5px auto;
-  padding: 2px;
+  grid-column-start: auto;
+  grid-row-start: auto;
+  height: 100%;
 }
