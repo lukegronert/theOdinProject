@@ -1,0 +1,46 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#navbar {
+  width: 100%;
+  background: #ddd;
+  height: 100%;
+  padding-top: 2px;
+  padding-bottom: 1px;
+  display: inline-block;
+  position: relative;
+}
+
+.fas {
+  color: rgb(53, 48, 48);
+  display: block;
+  float: right;
+  padding-right: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+#menu {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 100%;
+  background: #ddd;
+  width: 150px;
+  height: 91vh;
+  text-align: right;
+  display: none;
+  overflow: hidden;
+}
+
+#menu a {
+  display: block;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  color: teal;
+}

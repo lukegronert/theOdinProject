@@ -1,0 +1,30 @@
+#container {
+  margin: auto;
+  height: auto;
+  width: 75vw;
+  text-align: center;
+  display: inline;
+}
+
+#imageDiv {
+  width: 100%;
+  margin: auto 0 auto 0;
+  display: none;
+}
+
+.currentImage {
+  display: inline-block;
+}
+
+#circleContainer {
+  margin-top: 5vh;
+}
+
+li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.btn {
+  cursor: pointer;
+}
