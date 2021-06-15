@@ -87,7 +87,7 @@ function displayNewBook(book) {
     bookNum++;
 }
 
-function submitForm(form) {
+function submitForm() {
     let title = form.title.value;
     let author = form.author.value;
     let pages = form.pages.value;
@@ -110,3 +110,74 @@ function resetForm() {
 
 addBookToLibrary(NotW);
 displayNewBook(NotW);
+
+// Form validation
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
+const pages = document.querySelector('#pages');
+
+const titleError = document.querySelector('#titleError');
+const authorError = document.querySelector('#authorError');
+const pagesError = document.querySelector('#pagesError');
+
+form.addEventListener('submit', (event) => {
+    if (!title.validity.valid || !author.validity.valid || !pages.validity.valid) {
+        showError();
+        event.preventDefault();
+    } else {
+        submitForm();
+        event.preventDefault();
+    }
+})
+
+title.addEventListener('input', () => {
+    if(title.validity.valid) {
+        titleError.textContent = '';
+        titleError.className = '';
+    } else {
+        showError()
+    }
+})
+
+author.addEventListener('input', () => {
+    if(author.validity.valid) {
+        authorError.textContent = '';
+        authorError.className = '';
+    } else {
+        showError()
+    }
+})
+
+pages.addEventListener('input', () => {
+    if(pages.validity.valid) {
+        pagesError.textContent = '';
+        pagesError.className = '';
+    } else {
+        showError()
+    }
+})
+
+function showError() {
+    if (title.validity.valueMissing) {
+        titleError.textContent = 'Please enter a title.';
+        titleError.className = 'activeError';
+    } else if (title.validity.tooLong) {
+        titleError.textContent = 'Title must be under 20 characters.';
+        titleError.className = 'activeError';
+    } else if (author.validity.valueMissing) {
+        authorError.textContent = 'Please enter a name for the author.';
+        authorError.className = 'activeError';
+    } else if (author.validity.patternMismatch) {
+        authorError.textContent = 'Please only use letter for the author name.';
+        authorError.className = 'activeError';
+    } else if (author.validity.tooLong) {
+        authorError.textContent = 'Author name must be under 20 characters.';
+        authorError.className = 'activeError';
+    } else if (pages.validity.valueMissing) {
+        pagesError.textContent = 'Please enter the amount of pages.';
+        pagesError.className = 'activeError';
+    } else if (pages.validity.patternMismatch) {
+        pagesError.textContent = 'Please enter only numbers under 99999.';
+        pagesError.className = 'activeError';
+    } 
+}

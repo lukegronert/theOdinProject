@@ -14,19 +14,22 @@
         <div id="form-container">
             <form name="bookForm" class="noDisplay">
                 <label for="title">Title of Book:</label>
-                <input type="text" name="title" value="" placeholder="Title" maxlength="20">
+                <input type="text" id='title'  name="title" value="" placeholder="Title" maxlength="20" required>
+                <p id="titleError"></p>
                 <label for="author">Name of Author:</label>
-                <input type="text" name="author" value="" placeholder="Author" maxlength="40">
+                <input type="text" id='author' name="author" value="" placeholder="Author" maxlength="20" required pattern='[A-Za-z]+'>
+                <p id="authorError"></p>
                 <label for="pages">Number of Pages:</label>
-                <input type="text" name="pages" value="" placeholder="Pages" maxlength="40">
+                <input type="text" id='pages' name="pages" value="" placeholder="Pages" pattern="[0-9]{1,5}" required>
+                <p id="pagesError"></p>
                 <div id="readForm">
                     <p>Have you read it?</p>
                     <input type="radio" id="yes" name="haveRead" value="yes">
                     <label for="yes">Yes</label>
                     <input type="radio" id="no" name="haveRead" value="no">
                     <label for="no">No</label></br>
-                    <input type="button" name="Submit" value="Submit" onClick="submitForm(this.form)" id="submitBtn">
                 </div>
+                <input type="submit">
             </form>
         </div>
         <button id="newBookBtn">New Book</button>
