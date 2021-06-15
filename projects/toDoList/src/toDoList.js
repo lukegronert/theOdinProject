@@ -8,7 +8,7 @@ function renderToDoList() {
     let currentProject = projects[0];
 
     const newToDoButton = document.querySelector('#newToDoButton');
-    //When newToDoButton is clicked
+    //When newToDoButton is clicked:
     newToDoButton.addEventListener('click', () => {
         //If there is no input already displayed
         if(!content.querySelector('input')) {
@@ -21,7 +21,7 @@ function renderToDoList() {
             newToDoSubmitButton.appendChild(submitButtonText);
             toDoListUl.appendChild(newToDoSubmitButton);
             newToDoSubmitButton.classList.add('toDoSubmitBtn');
-            //When submit button is clicked
+            //When submit button is clicked:
             newToDoSubmitButton.addEventListener('click', () => {
                 //Add to do to project toDoList
                 currentProject.getToDos().push(newToDoInput.value);

@@ -32,6 +32,12 @@ export default class App extends Component {
     })
   }
 
+  onDeleteTask = (id) => {
+    this.setState({
+      tasks: this.state.tasks.filter((task) => task.id !== id),
+      })
+  }
+
   render () {
     const {task, tasks} = this.state;
 
@@ -45,7 +51,7 @@ export default class App extends Component {
             />
           <button type='submit'>Add Task</button>
         </form>
-        <Overview tasks={tasks} />
+        <Overview tasks={tasks} onDelete={this.onDeleteTask} />
       </div>
     )
   }

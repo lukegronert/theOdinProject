@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+    <!-- <form novalidate>
+        <p>
+          <label for="mail">
+            <span>Please enter an email address:</span>
+            <input type="email" id="mail" name="mail" required minlength="8">
+            <span class="error" aria-live="polite"></span>
+          </label>
+        </p>
+        <button>Submit</button>
+      </form>
+
+    <script>
+        const form = document.querySelector('form');
+        const email = document.querySelector('#mail');
+        const errorSpan = document.querySelector('.error');
+
+        email.addEventListener('input', (event) => {
+            if(email.validity.valid) {
+                errorSpan.textContent = '';
+                errorSpan.className = 'error';
+            } else {
+                showError();
+            }
+        });
+
+        form.addEventListener('submit', (event) => {
+            if(!email.validity.valid) {
+                showError();
+                event.preventDefault();
+            }
+        })
+
+        function showError() {
+            if(email.validity.valueMissing) {
+                errorSpan.textContent = 'Please enter an email address.';
+            } else if (email.validity.typeMismatch) {
+                errorSpan.textContent = 'You need to enter a valid email address';
+            } else if (email.validity.tooShort) {
+                errorSpan.textContent = `Email should be at least ${email.minLength} characters long`;
+            }
+        };
+    </script> -->
+    
+    
+    <!-- <form>
+        <p>
+          <fieldset>
+            <legend>Do you have a driver's license?<abbr title="This field is mandatory" aria-label="required">*</abbr></legend>
+            While only one radio button in a same-named group can be selected at a time,
+                 and therefore only one radio button in a same-named group having the "required"
+                 attribute suffices in making a selection a requirement
+            <input type="radio" required name="driver" id="r1" value="yes"><label for="r1">Yes</label>
+            <input type="radio" required name="driver" id="r2" value="no"><label for="r2">No</label>
+          </fieldset>
+        </p>
+        <p>
+          <label for="n1">How old are you?</label>
+          The pattern attribute can act as a fallback for browsers which
+               don't implement the number input type but support the pattern attribute.
+               Please note that browsers that support the pattern attribute will make it
+               fail silently when used with a number field.
+               Its usage here acts only as a fallback
+          <input type="number" min="12" max="120" step="1" id="n1" name="age"
+                 pattern="\d+">
+        </p>
+        <p>
+          <label for="t1">What's your favorite fruit?<abbr title="This field is mandatory" aria-label="required">*</abbr></label>
+          <input type="text" id="t1" name="fruit" list="l1" required
+                 pattern="[Bb]anana|[Cc]herry|[Aa]pple|[Ss]trawberry|[Ll]emon|[Oo]range">
+          <datalist id="l1">
+            <option>Banana</option>
+            <option>Cherry</option>
+            <option>Apple</option>
+            <option>Strawberry</option>
+            <option>Lemon</option>
+            <option>Orange</option>
+          </datalist>
+        </p>
+        <p>
+          <label for="t2">What's your e-mail address?</label>
+          <input type="email" id="t2" name="email">
+        </p>
+        <p>
+          <label for="t3">Leave a short message</label>
+          <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
+        </p>
+        <p>
+          <button>Submit</button>
+        </p>
+      </form> -->
+
+    <!-- <form>
+        <label for="choose">Would you prefer a banana or cherry?</label>
+        <input id="choose" name="i_like" required maxlength='6' minlength='6'>
+        <button>Submit</button>
+    </form>
+     -->
+
+     <form>
+        <div>
+          <label for="choose">Would you prefer a banana or a cherry?</label>
+          <input type="text" id="choose" name="i_like" required minlength="3" maxlength="6" pattern='(?=.*\d).{1}(?=.*[a-z]).{4,}'>
+        </div>
+        <div>
+          <label for="number">How many would you like?</label>
+          <input type="number" id="number" name="amount" value="1" min="1" max="10">
+        </div>
+        <div>
+          <button>Submit</button>
+        </div>
+      </form>
+</body>
+</html>

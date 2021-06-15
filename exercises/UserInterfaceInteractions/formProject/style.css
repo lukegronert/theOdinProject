@@ -1,0 +1,35 @@
+form {
+  font: 1em sans-serif;
+  max-width: 320px;
+  margin: 20px auto;
+}
+
+form div {
+  margin: 20px 0;
+}
+
+input {
+  width: 100%;
+}
+
+#btnDiv {
+  text-align: center;
+}
+
+input[type="submit"] {
+  width: 50%;
+}
+
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
+input:invalid:focus {
+  box-shadow: none;
+}
+
+.activeError {
+  background: red;
+  color: white;
+  margin: 0;
+}
