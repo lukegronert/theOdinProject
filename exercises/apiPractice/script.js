@@ -5,7 +5,7 @@ const errorMsg = document.querySelector('#errorMsg');
 const loading = document.querySelector('#loading');
 
 // takes a searched word and fetches a GIF related to that word
-const getGIF = (searchedWord) => {
+const getGIF = async (searchedWord) => {
     // when the search is started, hide the img, show Loading...
     img.style.display = 'none';
     loading.style.display = 'block';
@@ -25,6 +25,18 @@ const getGIF = (searchedWord) => {
             console.log(err);
         });
     }
+
+// Async/await version
+// Declare an async function
+// async function asyncGetGIF (searchedWord) {
+//     // wait for the fetch call to get data and set it to response
+//     const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=PwpEvZEU3wBmwjqJIbCRs0EeMCep1rNV&s=${searchedWord}`,
+//         {mode: 'cors'});
+//     // wait for response to be turned into json object
+//     const GIFdata = await response.json();
+//     // Set the img src to the url of the GIF
+//     img.src = response.data.images.original.url;
+//     }
 
     // After pressing a key while typing in the search input
 search.addEventListener('keyup', (e) => {
