@@ -36,7 +36,7 @@ searchBar.addEventListener('keyup', (event) => {
         });
     }
 })
-
+//main API call
 async function getWeather(city) {
     const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`)
     return response.json();
