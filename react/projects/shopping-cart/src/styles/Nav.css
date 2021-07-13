@@ -1,9 +1,11 @@
 nav {
   display: flex;
-  min-height: 10vh;
+  flex-flow: row wrap;
+  width: 100%;
   background-color: rgb(42, 45, 46);
   color: white;
   justify-content: space-around;
+  align-items: center;
 }
 
 .nav-links {

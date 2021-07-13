@@ -4,8 +4,10 @@ import Nav from './Nav';
 function App() {
   return (
     <div className="App">
-    <Nav />
-      <h1>Home page</h1>
+      <Nav />
+      <div className='content'>
+        <h1>SHOP</h1> 
+      </div>
     </div>
   );
 }
