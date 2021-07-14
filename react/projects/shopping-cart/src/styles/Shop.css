@@ -1,8 +1,18 @@
+body {
+  background: white;
+}
+
+@media (min-width: 700px) {
+  .itemDisplay {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 .itemDisplay {
   display: grid;
   width: 95vw;
   margin: 0 auto;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 .itemCard {
