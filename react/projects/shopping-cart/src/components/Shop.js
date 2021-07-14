@@ -5,13 +5,13 @@ import ItemCard from './ItemCard';
 import {useState, useEffect} from 'react';
 
 export default function Shop() {
-    const [itemData, setItemData] = useState({});
+    const [itemsData, setItemsData] = useState({});
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
                 .then(response => response.json())
-                .then(data => setItemData(data))
+                .then(data => setItemsData(data))
                 .finally(() => {
                     setLoading(false)
                 })
@@ -25,7 +25,7 @@ export default function Shop() {
         <div>
             <Nav />
             <div className='itemDisplay'>
-                {itemData.map((item) => {
+                {itemsData.map((item) => {
                     return (
                         <ItemCard item={item} key={item.id} />
                     )

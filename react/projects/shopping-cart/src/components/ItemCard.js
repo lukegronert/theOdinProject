@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/Shop.css';
 
+
 export default function ItemCard({item}) {
     return (
         <div className='itemCard'>
