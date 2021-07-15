@@ -6,7 +6,8 @@ function App() {
     <div className="App">
       <Nav />
       <div className='content'>
-        <h1>SHOP</h1> 
+        <div>SHOP</div>
+        <div>List of thangs we sell I guess</div>
       </div>
     </div>
   );
