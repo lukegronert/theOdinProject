@@ -1,12 +1,14 @@
 import React from 'react';
-import '../styles/Shop.css'
+import '../styles/Shop.css';
 import Nav from './Nav';
 import ItemCard from './ItemCard';
 import {useState, useEffect} from 'react';
+import cartPNG from '../images/shopping-cart.png'
 
 export default function Shop() {
     const [itemsData, setItemsData] = useState({});
     const [loading, setLoading] = useState(true);
+    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -17,7 +19,7 @@ export default function Shop() {
                 })
             }, [])
 
-    if (loading == true) {
+    if (loading === true) {
         return 'Loading...'
     }
 
@@ -27,10 +29,11 @@ export default function Shop() {
             <div className='itemDisplay'>
                 {itemsData.map((item) => {
                     return (
-                        <ItemCard item={item} key={item.id} />
+                        <ItemCard item={item} key={item.id} setCart={setCart} cart={cart} />
                     )
                 })}
             </div>
+            <img src={cartPNG} alt='shopping cart' className='cartImage' />
         </div>
     )
 }

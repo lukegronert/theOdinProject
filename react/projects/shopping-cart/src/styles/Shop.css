@@ -2,17 +2,17 @@ body {
   background: white;
 }
 
-@media (min-width: 700px) {
-  .itemDisplay {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
 .itemDisplay {
   display: grid;
   width: 95vw;
   margin: 0 auto;
   grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+  .itemDisplay {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .itemCard {
@@ -28,4 +28,25 @@ body {
 
 .imageDiv {
   text-align: center;
+}
+
+.orderDiv {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cartImage {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 4rem 0.5rem 0 0;
+}
+
+.cartImage:hover {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
 }
