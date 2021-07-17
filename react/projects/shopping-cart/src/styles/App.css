@@ -5,5 +5,13 @@
 }
 
 .content div {
-  margin: auto;
+  margin: auto 2rem auto 2rem;
+}
+
+.contentTitleDiv {
+  text-align: right;
+}
+
+.contentProductsDiv {
+  text-align: left;
 }

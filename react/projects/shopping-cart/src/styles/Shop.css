@@ -32,7 +32,7 @@ body {
 
 .orderDiv {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .cartImage {
@@ -49,4 +49,8 @@ body {
   cursor: pointer;
   height: 50px;
   width: 50px;
+}
+
+.orderInput {
+  width: 20%;
 }

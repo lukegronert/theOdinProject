@@ -28,7 +28,7 @@ export default function ItemCard({item, cart, setCart}) {
                     <p>{item.title}</p>
             </div>
             <div className='orderDiv'>
-                <input type="number" min='0' max='10' style={{width: '50%'}} className='orderInput' onChange={event => setOrderAmount(event.target.value)} />
+                <input type="number" min='0' max='10' className='orderInput' onChange={event => setOrderAmount(event.target.value)} />
                 <button onClick={() => {
                     addToCart();
                 }}>Add to Cart</button>
