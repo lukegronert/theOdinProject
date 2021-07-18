@@ -10,8 +10,21 @@
 
 .contentTitleDiv {
   text-align: right;
+  color: coral;
 }
 
 .contentProductsDiv {
   text-align: left;
+  font-style: italic;
+  color: white;
+}
+
+#background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: coral;
+  z-index: -1;
 }

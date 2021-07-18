@@ -10,11 +10,12 @@ function App() {
           <h1>SHOP</h1>
         </div>
         <div className='contentProductsDiv'>
-          <h1>clothing</h1>
-          <h1>jewelry</h1>
-          <h1>electronics</h1>
+          <h2>clothing</h2>
+          <h2>jewelry</h2>
+          <h2>electronics</h2>
         </div>
       </div>
+      <div id="background"></div>
     </div>
   );
 }
