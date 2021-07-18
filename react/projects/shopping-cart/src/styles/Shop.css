@@ -96,6 +96,11 @@ body {
   max-width: 50px;
 }
 
+.cartHeaders {
+  display: grid;
+  grid-template-columns: 10% 60% 10% 10% 10%;
+}
+
 .cartItemDiv {
   display: grid;
   grid-template-columns: 10% 60% 10% 10% 10%;
@@ -111,4 +116,13 @@ body {
 
 .itemTotalPrice {
   text-align: middle;
+}
+
+.orderTotal {
+  text-align: right;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: space-around;
 }
