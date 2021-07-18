@@ -13,6 +13,8 @@ export default function Shop() {
     const [cart, setCart] = useState([]);
     const [itemNumber, setItemNumber] = useState(0);
 
+    const shoppingCartModal = document.querySelector('.shoppingCartModal');
+
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
                 .then(response => response.json())
@@ -21,11 +23,15 @@ export default function Shop() {
                     setLoading(false);
                 })
             }, [])
+    
+    if (cart.length !== 0) {
+        const cartImage = document.querySelector('.cartImage');
+        cartImage.classList.remove('hidden');
+    }
 
     if (loading === true) {
         return 'Loading...'
     }
-    const shoppingCartModal = document.querySelector('.shoppingCartModal');
 
     return (
         <div>
@@ -37,10 +43,10 @@ export default function Shop() {
                     )
                 })}
             </div>
+            <ShoppingCart cart={cart} setCart={setCart} itemNumber={itemNumber} />
             <button>
-                <img src={cartPNG} alt='shopping cart' className='cartImage' onClick={() => shoppingCartModal.classList.remove('hidden')} />
+                <img src={cartPNG} alt='shopping cart' className='cartImage hidden' onClick={() => shoppingCartModal.classList.remove('hidden')} />
             </button>
-            <ShoppingCart cart={cart} itemNumber={itemNumber} />
         </div>
     )
 }

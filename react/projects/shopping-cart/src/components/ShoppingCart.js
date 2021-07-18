@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function ShoppingCart({cart, itemNumber}) {
+export default function ShoppingCart({cart, setCart, itemNumber}) {
     const shoppingCartModal = document.querySelector('.shoppingCartModal');
 
     let total = 0;
-    let orderTotal = cart.forEach((item) => {
+    const orderTotal = cart.forEach((item) => {
         total += item.price * item.amount;
     })
     
@@ -33,6 +33,12 @@ export default function ShoppingCart({cart, itemNumber}) {
                     {cart.map((item) => {
                         return (
                             <div key={item.id} className='cartItemDiv'>
+                                <div className='deleteItemButton' onClick={() => {
+                                    const newCart = cart.filter(i => i.title !== item.title);
+                                    setCart(newCart)
+                                }}>
+                                    <span>&times;</span>
+                                </div>
                                 <img src={item.image} alt='pic' />
                                 <div className='itemTitle'>
                                     <h3>{item.title}</h3>
@@ -53,7 +59,9 @@ export default function ShoppingCart({cart, itemNumber}) {
                     <h3>Order Total: ${total}</h3>
                 </div>
                 <div className='buttonDiv'>
-                    <button>Continue Shopping</button>
+                    <button onClick={() => {
+                    shoppingCartModal.classList.add('hidden');
+                }}>Continue Shopping</button>
                     <button>Checkout</button>
                 </div>
             </div>

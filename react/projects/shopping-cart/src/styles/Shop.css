@@ -56,7 +56,7 @@ body {
 }
 
 .hidden {
-  visibility: hidden;
+  display: none;
 }
 
 .shoppingCartModal {
@@ -98,24 +98,32 @@ body {
 
 .cartHeaders {
   display: grid;
-  grid-template-columns: 10% 60% 10% 10% 10%;
+  grid-template-columns: 5% 10% 55% 10% 10% 10%;
 }
 
 .cartItemDiv {
   display: grid;
-  grid-template-columns: 10% 60% 10% 10% 10%;
+  grid-template-columns: 5% 10% 55% 10% 10% 10%;
 }
 
 .itemPrice {
-  text-align: middle;
+  text-align: center;
 }
 
 .itemQuantity {
-  text-align: middle;
+  text-align: center;
 }
 
 .itemTotalPrice {
-  text-align: middle;
+  text-align: center;
+}
+
+.deleteItemButton {
+  text-align: center;
+}
+
+.deleteItemButton:hover {
+  cursor: pointer;
 }
 
 .orderTotal {
