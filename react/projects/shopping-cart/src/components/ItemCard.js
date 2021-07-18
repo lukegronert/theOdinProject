@@ -3,20 +3,29 @@ import '../styles/Shop.css';
 import {useState} from 'react';
 
 
-export default function ItemCard({item, cart, setCart}) {
+export default function ItemCard({item, cart, setCart, itemNumber, setItemNumber}) {
     const [orderAmount, setOrderAmount] = useState(0);
-    const addToCart = () => {
-        const orderInput = document.querySelector('.orderInput');
-        setCart([
-            ...cart,
-            {
-                id: item.id,
-                title: item.title,
-                image: item.image,
-                price: item.price,
-                amount: Number(orderAmount)
-            }
-        ])
+    const addToCart = (title) => {
+        if(typeof cart.find(item => item.title === title) === 'undefined') {
+            setCart([
+                ...cart,
+                {
+                    id: itemNumber,
+                    title: item.title,
+                    image: item.image,
+                    price: item.price,
+                    amount: Number(orderAmount)
+                }
+            ])
+        } else {
+            const sameItem = cart.find(item => item.title === title);
+            const newCart = cart.filter(item => item.title !== title);
+            sameItem.amount += Number(orderAmount);
+            setCart([
+                ...newCart,
+                sameItem
+            ])
+        }
         console.log(cart);
     }
     return (
@@ -31,7 +40,8 @@ export default function ItemCard({item, cart, setCart}) {
             <div className='orderDiv'>
                 <input type="number" min='0' max='10' className='orderInput' onChange={event => setOrderAmount(event.target.value)} />
                 <button onClick={() => {
-                    addToCart();
+                    addToCart(item.title);
+                    setItemNumber(itemNumber+1);
                 }}>Add to Cart</button>
             </div>
         </div>

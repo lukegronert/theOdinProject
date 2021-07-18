@@ -11,6 +11,7 @@ export default function Shop() {
     const [itemsData, setItemsData] = useState({});
     const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState([]);
+    const [itemNumber, setItemNumber] = useState(0);
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -32,14 +33,14 @@ export default function Shop() {
             <div className='itemDisplay'>
                 {itemsData.map((item) => {
                     return (
-                        <ItemCard item={item} key={item.id} setCart={setCart} cart={cart} />
+                        <ItemCard item={item} key={item.id} setCart={setCart} cart={cart} itemNumber={itemNumber} setItemNumber={setItemNumber} />
                     )
                 })}
             </div>
             <button>
                 <img src={cartPNG} alt='shopping cart' className='cartImage' onClick={() => shoppingCartModal.classList.remove('hidden')} />
             </button>
-            <ShoppingCart cart={cart} />
+            <ShoppingCart cart={cart} itemNumber={itemNumber} />
         </div>
     )
 }

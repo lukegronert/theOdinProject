@@ -1,7 +1,6 @@
 import React from 'react';
-import {useEffect} from 'react';
 
-export default function ShoppingCart({cart}) {
+export default function ShoppingCart({cart, itemNumber}) {
     const shoppingCartModal = document.querySelector('.shoppingCartModal');
     
     return (
@@ -25,7 +24,7 @@ export default function ShoppingCart({cart}) {
                                     <p>{item.amount}</p>
                                 </div>
                                 <div className='itemTotalPrice'>
-                                    <p>{item.price * item.amount}</p>
+                                    <p>${item.price * item.amount}</p>
                                 </div>
                             </div>
                         )
