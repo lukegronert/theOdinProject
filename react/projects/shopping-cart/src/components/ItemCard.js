@@ -10,6 +10,7 @@ export default function ItemCard({item, cart, setCart}) {
         setCart([
             ...cart,
             {
+                id: item.id,
                 title: item.title,
                 image: item.image,
                 price: item.price,
