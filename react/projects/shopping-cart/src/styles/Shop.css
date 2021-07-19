@@ -104,6 +104,7 @@ body {
 .cartItemDiv {
   display: grid;
   grid-template-columns: 5% 10% 55% 10% 10% 10%;
+  align-items: center;
 }
 
 .itemPrice {
@@ -133,4 +134,20 @@ body {
 .buttonDiv {
   display: flex;
   justify-content: space-around;
+}
+
+.continueShoppingButton,
+.checkoutButton {
+  border: none;
+  height: 10vh;
+  font-size: 1.5rem;
+  background: slategray;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  color: white;
+}
+
+.continueShoppingButton:hover,
+.checkoutButton:hover {
+  background: lightgrey;
 }

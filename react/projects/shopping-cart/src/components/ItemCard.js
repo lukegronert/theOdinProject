@@ -6,7 +6,9 @@ import {useState} from 'react';
 export default function ItemCard({item, cart, setCart, itemNumber, setItemNumber}) {
     const [orderAmount, setOrderAmount] = useState(0);
     const addToCart = (title) => {
-        if(typeof cart.find(item => item.title === title) === 'undefined') {
+        if(orderAmount === 0) {
+            return
+        } else if (typeof cart.find(item => item.title === title) === 'undefined') {
             setCart([
                 ...cart,
                 {
@@ -17,6 +19,7 @@ export default function ItemCard({item, cart, setCart, itemNumber, setItemNumber
                     amount: Number(orderAmount)
                 }
             ])
+            console.log(orderAmount);
         } else {
             const sameItem = cart.find(item => item.title === title);
             const newCart = cart.filter(item => item.title !== title);

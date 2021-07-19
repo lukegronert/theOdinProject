@@ -56,13 +56,13 @@ export default function ShoppingCart({cart, setCart, itemNumber}) {
                         )
                     })}
                 <div className='orderTotal'>
-                    <h3>Order Total: ${total}</h3>
+                    <h3>Order Total: ${total.toFixed(2)}</h3>
                 </div>
                 <div className='buttonDiv'>
-                    <button onClick={() => {
+                    <button className='continueShoppingButton' onClick={() => {
                     shoppingCartModal.classList.add('hidden');
                 }}>Continue Shopping</button>
-                    <button>Checkout</button>
+                    <button className='checkoutButton'>Checkout</button>
                 </div>
             </div>
         </div>
